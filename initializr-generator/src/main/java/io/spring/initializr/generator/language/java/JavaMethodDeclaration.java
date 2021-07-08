@@ -23,7 +23,6 @@ import java.util.List;
 
 import io.spring.initializr.generator.language.Annotatable;
 import io.spring.initializr.generator.language.Annotation;
-import io.spring.initializr.generator.language.Parameter;
 
 /**
  * Declaration of a method written in Java.
@@ -40,11 +39,11 @@ public final class JavaMethodDeclaration implements Annotatable {
 
 	private final int modifiers;
 
-	private final List<Parameter> parameters;
+	private final List<JavaParameter> parameters;
 
 	private final List<JavaStatement> statements;
 
-	private JavaMethodDeclaration(String name, String returnType, int modifiers, List<Parameter> parameters,
+	private JavaMethodDeclaration(String name, String returnType, int modifiers, List<JavaParameter> parameters,
 			List<JavaStatement> statements) {
 		this.name = name;
 		this.returnType = returnType;
@@ -65,7 +64,7 @@ public final class JavaMethodDeclaration implements Annotatable {
 		return this.returnType;
 	}
 
-	List<Parameter> getParameters() {
+	List<JavaParameter> getParameters() {
 		return this.parameters;
 	}
 
@@ -94,7 +93,7 @@ public final class JavaMethodDeclaration implements Annotatable {
 
 		private final String name;
 
-		private List<Parameter> parameters = new ArrayList<>();
+		private List<JavaParameter> parameters = new ArrayList<>();
 
 		private String returnType = "void";
 
@@ -114,7 +113,7 @@ public final class JavaMethodDeclaration implements Annotatable {
 			return this;
 		}
 
-		public Builder parameters(Parameter... parameters) {
+		public Builder parameters(JavaParameter... parameters) {
 			this.parameters = Arrays.asList(parameters);
 			return this;
 		}
